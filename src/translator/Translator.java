@@ -20,8 +20,10 @@ public class Translator {
 	 * General Separators
 	 */
 	private String andSeparator = " and";
+	private String allSeparator = "all";
 	private String decimalSeparator = "point";
 	private String logBaseSeparator = "to the base";
+	private String piSeparator = "pi";
 
 	/*
 	 * Math Separators
@@ -31,6 +33,7 @@ public class Translator {
 	private String multSeparator = "times";
 	private String dvdSeparator = "over";
 	private String logSeparator = "log";
+	private String logbSeparator = "logb";
 	private String powerSeparator = "power";
 	private String squaredSeparator = "squared";
 	private String cubedSeparator = "cubed";
@@ -172,9 +175,10 @@ public class Translator {
 		expression = expression.replace(powerSeparator, "^");
 		expression = expression.replace(squaredSeparator, "^2");
 		expression = expression.replace(cubedSeparator, "^3");
-		expression = expression.replace(logBaseSeparator, ",");
 		expression = expression.replace(decimalSeparator, ".");
+		expression = expression.replace(logBaseSeparator, ",");
 		expression = expression.replaceAll(andSeparator, "");
+		expression = expression.replaceAll(allSeparator, "");
 		expression = expression.replaceAll("\\s+", "");
 		return expression;
 	}
@@ -193,14 +197,25 @@ public class Translator {
 		for (String term : terms) {
 			if (term.contains(logSeparator)) {
 				term = term.replace(logSeparator, "");
-				term = logSeparator
-						+ "("
-						+ termsParser(
-								term.split(String.format(WITH_DELIMITER, ",")),
-								bases) + ")";
+				if (term.contains(",")) {
+					term = logbSeparator
+							+ "("
+							+ termsParser(term.split(String.format(
+									WITH_DELIMITER, ",")), bases) + ")";
+				} else {
+					term = logSeparator
+							+ "("
+							+ termsParser(term.split(String.format(
+									WITH_DELIMITER, ",")), bases) + ")";
+				}
+			} else if (term.contains(piSeparator)
+					&& term.length() != piSeparator.length()
+					&& term.indexOf(piSeparator) != 0) {
+				term = term.replace(piSeparator, "*" + piSeparator);
 			}
 			expression = expression + " " + baseParser(term, bases);
 		}
+
 		return expression;
 	}
 

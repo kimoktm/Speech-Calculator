@@ -43,13 +43,15 @@ public class SpeechCalculator {
 		// String[] testText = {
 		// "7 thousand 3 hundred and 23 plus 3 hundred times 2squared - log 4 hundred 34 to the base 7thousand hundred",
 		// "2 * 3 - 1", "store last result", "retrieve last result",
-		// "define variable x", "store x 10", " 2 * x + 1" };
+		// "define variable x", "store x 10", " 2 * x + 1 + pi/2",
+		// "2 *3 + pi - 1", "pi/2", "4pi+4", "4pi squared", "log 12" };
 		//
 		// for (String test : testText) {
 		// try {
 		// result = String.valueOf(translator.parseExpression(test));
 		// } catch (ParseException e) {
 		// result = "Syntax Error";
+		// e.printStackTrace();
 		// }
 		//
 		// System.out.println("You said: " + translator.getParsedExpression());
@@ -84,8 +86,8 @@ public class SpeechCalculator {
 			recognizer.deallocate();
 			System.exit(1);
 		}
-		System.out.println("/*******  Welcome To Speech Calculator  *******/");
 
+		System.out.println("/*******  Welcome To Speech Calculator  *******/");
 		// loop the recognition until the program exits.
 		while (true) {
 			System.out.println("Start speaking. Press Ctrl-C to quit.\n");
