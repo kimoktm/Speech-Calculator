@@ -15,7 +15,11 @@ import speech.calculator.SpeechCalculator;
 public class Window {
 
 	private JFrame frame;
-
+	private boolean recording;
+	private static SpeechCalculator speechCalculator;
+	final static JTextArea txtrResult = new JTextArea();
+	final static JTextArea textArea = new JTextArea();
+	
 	/**
 	 * Launch the application.
 	 */
@@ -23,6 +27,8 @@ public class Window {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					speechCalculator = new SpeechCalculator();
+					speechCalculator.initialize(txtrResult, textArea);
 					Window window = new Window();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
@@ -43,19 +49,21 @@ public class Window {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		recording = false;
+
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.setBounds(100, 100, 312, 332);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		final JTextArea txtrResult = new JTextArea();
+//		final JTextArea txtrResult = new JTextArea();
 		txtrResult.setForeground(Color.WHITE);
 		txtrResult.setBackground(Color.BLACK);
 		txtrResult.setBounds(12, 12, 288, 15);
 		frame.getContentPane().add(txtrResult);
 
-		final JTextArea textArea = new JTextArea();
+//		final JTextArea textArea = new JTextArea();
 		textArea.setForeground(Color.WHITE);
 		textArea.setBackground(Color.BLACK);
 		textArea.setEnabled(false);
@@ -223,10 +231,18 @@ public class Window {
 		button_13.setBounds(231, 150, 61, 25);
 		frame.getContentPane().add(button_13);
 
-		JButton btnRecord = new JButton("record");
+		final JButton btnRecord = new JButton("record");
 		btnRecord.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				SpeechCalculator.main(new String[0]);
+				if (!recording) {
+					recording = true;
+					speechCalculator.startRecording();
+					speechCalculator.start();
+					btnRecord.setText("Recording..");
+					btnRecord.setBackground(Color.RED);
+					btnRecord.setForeground(Color.WHITE);
+					btnRecord.disable();
+				}
 			}
 		});
 		btnRecord.setBackground(Color.WHITE);
@@ -236,7 +252,7 @@ public class Window {
 		JButton btnEnter = new JButton("=");
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String result = SpeechCalculator.evaluateText(txtrResult
+				String result = speechCalculator.evaluateText(txtrResult
 						.getText());
 				if (result.equals("Syntax Error"))
 					textArea.setText(result);

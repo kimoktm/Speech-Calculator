@@ -2,16 +2,16 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/hesham/workspace/Speech-Calculator/jars/batch.jar"/>
-	<classpathentry kind="lib" path="/home/hesham/workspace/Speech-Calculator/jars/js.jar"/>
-	<classpathentry kind="lib" path="/home/hesham/workspace/Speech-Calculator/jars/jsapi.jar"/>
-	<classpathentry kind="lib" path="/home/hesham/workspace/Speech-Calculator/jars/jsapi-1.0-base.jar"/>
-	<classpathentry kind="lib" path="/home/hesham/workspace/Speech-Calculator/jars/parsii.jar"/>
-	<classpathentry kind="lib" path="/home/hesham/workspace/Speech-Calculator/jars/sphinx4.jar"/>
-	<classpathentry kind="lib" path="/home/hesham/workspace/Speech-Calculator/jars/tags.jar"/>
-	<classpathentry kind="lib" path="/home/hesham/workspace/Speech-Calculator/jars/TIDIGITS_8gau_13dCep_16k_40mel_130Hz_6800Hz.jar"/>
-	<classpathentry kind="lib" path="/home/hesham/workspace/Speech-Calculator/jars/WSJ_8gau_13dCep_8kHz_31mel_200Hz_3500Hz.jar"/>
-	<classpathentry kind="lib" path="/home/hesham/workspace/Speech-Calculator/jars/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.eclipse.swt"/>
+	<classpathentry kind="lib" path="/home/kimo/workspace/SpeechCalculator/jars/batch.jar"/>
+	<classpathentry kind="lib" path="/home/kimo/workspace/SpeechCalculator/jars/js.jar"/>
+	<classpathentry kind="lib" path="/home/kimo/workspace/SpeechCalculator/jars/jsapi.jar"/>
+	<classpathentry kind="lib" path="/home/kimo/workspace/SpeechCalculator/jars/jsapi-1.0-base.jar"/>
+	<classpathentry kind="lib" path="/home/kimo/workspace/SpeechCalculator/jars/parsii.jar"/>
+	<classpathentry kind="lib" path="/home/kimo/workspace/SpeechCalculator/jars/sphinx4.jar"/>
+	<classpathentry kind="lib" path="/home/kimo/workspace/SpeechCalculator/jars/tags.jar"/>
+	<classpathentry kind="lib" path="/home/kimo/workspace/SpeechCalculator/jars/TIDIGITS_8gau_13dCep_16k_40mel_130Hz_6800Hz.jar"/>
+	<classpathentry kind="lib" path="/home/kimo/workspace/SpeechCalculator/jars/WSJ_8gau_13dCep_8kHz_31mel_200Hz_3500Hz.jar"/>
+	<classpathentry kind="lib" path="/home/kimo/workspace/SpeechCalculator/jars/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
