@@ -24,6 +24,7 @@ public class Translator {
 	private String decimalSeparator = "point";
 	private String logBaseSeparator = "to the base";
 	private String piSeparator = "pi";
+	private String expSeparator = "exp";
 
 	/*
 	 * Math Separators
@@ -212,6 +213,13 @@ public class Translator {
 					&& term.length() != piSeparator.length()
 					&& term.indexOf(piSeparator) != 0) {
 				term = term.replace(piSeparator, "*" + piSeparator);
+			} else if (term.contains(expSeparator)) {
+				term = term.replace(expSeparator, "");
+				term = expSeparator
+						+ "("
+						+ termsParser(
+								term.split(String.format(WITH_DELIMITER, ",")),
+								bases) + ")";
 			}
 			expression = expression + " " + baseParser(term, bases);
 		}

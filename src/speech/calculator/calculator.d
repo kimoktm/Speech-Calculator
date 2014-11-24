@@ -82,8 +82,8 @@ Y                    W AY
 Z                    Z IY
 E                    IY
 R                    AA R
-EXPONENTIAL          EH K S P OW N EH N CH AH L
-EXPONENTIAL(2)       EH K S P OW N EH N SH AH L
+EXP                  EH K S P OW N EH N CH AH L
+EXP(2)               EH K S P OW N EH N SH AH L
 TO 					 T AH
 THE 				 DH AH
 THE(2)				 DH IY
